@@ -1,0 +1,98 @@
+.container {
+    width: max-content;
+    height: max-content;
+}
+
+.title_container {
+    height: 8vw;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title_stile {
+    color: #040D5C;
+    font-family: 'Sitka Small';
+    text-align: center;
+    font-size: 4.167vw;
+}
+
+.center {
+    height: 33vw;
+    width: max-content;
+    display: flex;
+}
+
+.img_1 {
+    height: 33vw;
+    width: 100vw;
+}
+
+.inputs{
+    position: absolute;
+    width: 100vw;
+
+}
+
+.UsuarioLabel, .PasswordLabel{
+    display: flex;
+    text-align: center;
+    font: normal normal normal 2.083vw/3.021vw Sitka Small;
+    letter-spacing: 0px;
+    color: #0B0E29;
+    opacity: 1;
+}
+
+.UsuarioLabel{
+    position: absolute;
+    top: 11vw;
+    left: 16vw;
+}
+
+.PasswordLabel{
+    position: absolute;
+    top: 16vw;
+    left: 16vw;
+}
+
+.inputuser, .inputpassword {
+    margin-left: 1.771vw;
+    float: right;
+    width: 21.198vw;
+    height: 3.4vw; 
+    border-radius: 3.889vw;
+    font: normal normal normal 2.083vw/3.021vw Sitka Small;
+    text-align: center;
+    border: none;
+    
+}
+
+.inputuser{
+    margin-left: 5.47vw;
+}
+
+.Start {
+    text-align: center;
+    font: normal normal normal 1.823vw/2.656vw Sitka Small;
+    letter-spacing: 0px;
+    color: #B2B2B2;
+    opacity: 1;
+    position: absolute;
+    top: 21vw;
+    left: 34vw;   
+}
+
+.start1{
+    text-decoration: none;
+    color: #B2B2B2;
+}
+
+.footer{
+    height: 8vw;
+    text-align: center;
+    font: normal normal normal 1.823vw/2.656vw Sitka Small;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+}
