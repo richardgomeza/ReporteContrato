@@ -1,0 +1,18 @@
+#names {
+    color: var(--unnamed-color-ffffff);
+    text-align: center;
+    font: normal normal normal 1.563vw/1.563vw Sitka Small;
+    letter-spacing: 0vw;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+#titleFooter {
+    color: var(--unnamed-color-ffffff);
+    text-align: center;
+    font: normal normal normal 1.823vw/1.823vw Sitka Small;
+    letter-spacing: 0vw;
+    color: #FFFFFF;
+    opacity: 1;
+
+}

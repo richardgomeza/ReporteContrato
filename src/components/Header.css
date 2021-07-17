@@ -1,0 +1,47 @@
+#titleHeader {
+    /* position: absolute;
+    top: 1.823vw;
+    left: 12.500vw;*/
+    /* width: 22.917vw;
+    height: 6.406vw;  */
+    text-align: center;
+    font: normal normal normal 2.604vw/3.802vw Sitka Small;
+    letter-spacing: 0vw;
+    color: #040D5C;
+    opacity: 1; 
+}
+
+#logo {
+    /* position: absolute;
+    top: 1.667vw;
+    left: 2.708vw; */
+    width: 8.490vw; 
+    /* height: 6.719079755vw; */
+    opacity: 1;
+}
+
+#bienvenida {
+    /* position: absolute;
+    top: 1.823vw;
+    left: 41.406vw; */
+    width: 19.896vw;
+    height: 5.208vw;
+    text-align: center;
+    font: normal normal normal 2.604vw/2.604vw Sitka Small;
+    letter-spacing: 0vw;
+    color: #040D5C;
+    opacity: 1;
+}
+
+#navbar {
+    /* position: absolute; */
+    /* top: 3.490vw;
+    left: 68.854vw; */
+    /* width: 11.510vw;
+    height: 1.563vw;
+    text-align: left; */
+    font: normal normal normal 1.563vw/2.292vw Sitka Small;
+    letter-spacing: 0vw;
+    color: #040D5C;
+    opacity: 1;
+}
