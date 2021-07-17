@@ -1,6 +1,7 @@
-.container {
-    width: max-content;
-    height: max-content;
+.containerL {
+    position: relative;
+    height: 0;
+    padding-bottom: 20%;
 }
 
 .title_container {
@@ -18,15 +19,16 @@
     font-size: 4.167vw;
 }
 
-.center {
+.centerL {
     height: 33vw;
     width: max-content;
     display: flex;
 }
 
 .img_1 {
-    height: 33vw;
+    /* height: 33vw; */
     width: 100vw;
+    margin-top: 5vw;
 }
 
 .inputs{

@@ -1,18 +1,19 @@
 import React from 'react';
-import Titulo from './components/title/title.jsx'
-import './index.css'
-import Img_1 from '../../assets/images/img_1.jpg'
+import Titulo from './components/title/title.jsx';
+import './index.css';
+// import Img_1 from '../../assets/images/img_1.jpg'
+// const Img_1 = process.env.PUBLIC_URL + '/LoginFondo.jpg';
 
 const index = () => {
     return (
-        <div className='container'>
+        <div className='containerL'>
             <div className='title_container'>
                 <label className='title_stile'> <Titulo text='CONSTRUCTORA SOSA & COMPAÑIA S.A.'/> </label>
             </div>
-            <div className='center'>
-                <div className='divimg'> 
-                    <img src={Img_1} alt='' className='img_1' />
-                </div>
+            <div className='centerL' style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/LoginFondo.jpg'})`,backgroundPosition: 'center',backgroundSize: 'cover', backgroundRepeat: 'no-repeat', width: 'auto'}}>
+                {/* <div className='divimg'> 
+                    <img src={process.env.PUBLIC_URL + '/LoginFondo.jpg'} alt='' className='img_1' />
+                </div> */}
                 <div className='inputs'>
                     <div className='grupo1'>
                         <form>
@@ -22,7 +23,7 @@ const index = () => {
                             </label>
                             <label className="PasswordLabel">
                                 Contraseña
-                                <input type='text' name='Password' className='inputpassword' />
+                                <input type='text' name='Password' className='inputpassword' alt="contraseña"/>
                             </label>
                         </form>
                     </div>
@@ -69,12 +70,10 @@ const index = () => {
                     </div>
                 </div>
             <div class="row border-top" style={{paddingTop:'2.292vw'}}>
-            {/* <div class="col-12 col-md">
-            </div> */}
             <div class="col-6 col-md text-#FFFFFF">
                 <h4 id="titleFooterL"><b>Recursos</b></h4>
                 <ul class="list-unstyled text-small" id="namesL">
-                <li class="mb-1"><a class="text-decoration-none docs-creator" href="#" style={{color:'#FFFFFF'}}>Repositorio</a></li>
+                <li class="mb-1" id="namesL"><a class="text-decoration-none docs-creator" href="https://github.com/richardgomeza/ReporteContrato/tree/master" id="namesL">Repositorio</a></li>
                 </ul>
             </div>
             <div class="col-6 col-md">
@@ -84,7 +83,7 @@ const index = () => {
                 </ul>
             </div>
             </div>
-            <div class="container border-top border-bottom">
+            <div class="container border-top border-bottom" id="namesL" style={{paddingTop:'0.8vw',paddingBottom:'0.8vw'}}>
                 <i class="col-4 col-md">Derechos reservados &copy; 2021</i>
             </div>
             </footer>

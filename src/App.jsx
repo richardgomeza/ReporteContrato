@@ -2,8 +2,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'; 
-import Header from './components/Header.jsx';
-import Footer from './components/Footer.jsx';
+import Header from './components/Header/Header.jsx';
+import Footer from './components/Footer/Footer.jsx';
 import Cantidades from './components/Cantidades.jsx';
 import Contratos from './components/Contratos.jsx';
 import Login from './components/Login/index.js';
