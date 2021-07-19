@@ -1,4 +1,3 @@
-import { DateTimePickerComponent } from '@syncfusion/ej2-react-calendars';
 import React from 'react';
 
 class Formulario extends React.Component {
@@ -39,7 +38,9 @@ class Formulario extends React.Component {
             isGoing: true,
             numberOfGuests: 2,
             value: new Date(),
-            onChange: new Date()
+            onChange: new Date(),
+            date: new Date(),
+            datef: (new Date()).getMonth +1
         };   
         
         
@@ -55,6 +56,14 @@ class Formulario extends React.Component {
         alert('An essay was submitted: ' + this.state.value);
         event.preventDefault();
         }
+      
+        _onDateChange(e) {
+          let state = this.state;
+          state['date'] = e.target.value;
+          // Or (you can use below method to access component in another method)
+          state['date'] = this.dateRef.value;
+          this.setState(state);
+      }
   
       handleInputChange(event) {
         const target = event.target;
@@ -70,22 +79,12 @@ class Formulario extends React.Component {
         // const [value, onChange] = useState(new Date());
         return (
             <div>
-
-                    <DateTimePickerComponent></DateTimePickerComponent>
-                <h4>Nuevo Contrato:</h4>
+                <h4>Nuevo Contrato:</h4> <br />
                 <h5>Detalles de contrato</h5><br />
-                <form class="container">
-                    {/* <label>
-                    <span style={{margin:'2vw'}}> Is going:</span>  
-                    <input
-                        name="isGoing"
-                        type="checkbox"
-                        checked={this.state.isGoing}
-                        onChange={this.handleInputChange} />
-                    </label> */}
-                    <br />
-                    
-                    <label>
+                <form class="container d-flex center">
+                  <div class="row">
+
+                    <label class="col">
                     <span style={{margin:'2vw'}}>Contrato</span>  
                     <input
                         name="isGoing"
@@ -93,9 +92,8 @@ class Formulario extends React.Component {
                         checked={this.state.isGoing}
                         onChange={this.handleInputChange} />
                     </label>
-                    <br />
 
-                    <label>
+                    <label class="col">
                     <span style={{margin:'2vw'}}>Proyecto</span>  
                     <input
                         name="isGoing"
@@ -103,27 +101,125 @@ class Formulario extends React.Component {
                         checked={this.state.isGoing}
                         onChange={this.handleInputChange} />
                     </label>
-                    <br />
-
-                    <br />
-
-                    <label>
-                    Number of guests:
-                    <input
-                        name="numberOfGuests"
-                        type="number"
-                        value={this.state.numberOfGuests}
-                        onChange={this.handleInputChange} />
+                  </div>
+                  <div class="row">
+                    <label class="col">
+                    <span style={{margin:'2vw'}}>Fecha de inicio:</span>
+                    <input type="date" ref={(date) => {this.dateRef = date;}} value={this.state.date} onChange={this._onDateChange.bind(this)}/>
                     </label>
-                    <br />
 
-                    <label>
-                    Essay:  
-                    <textarea value="" onChange={this.handleChange} />
-                </label>
+                    <label class="col">
+                    <span style={{margin:'2vw'}}>Fecha de fin:</span>
+                    <input type="date" ref={(date) => {this.dateRef = date;}} value={this.state.date} onChange={this._onDateChange.bind(this)}/>
+                    </label>
+                  </div>
                 </form>
+                <div class="row">
+
+                  <h5>Cantidades:</h5>
+                </div>
+              
+                <div class="row" style={{margin:'  2vw'}}>
+                <table class="table">
+                  <thead>
+                    <tr class="table-info">
+                      <th scope="col">Item</th>
+                      <th scope="col">Descripción</th>
+                      <th scope="col">Unidad</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Valor Unitario</th>            
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="1.1"
+                            //aria-label="1.1"
+                            //aria-describedby="basic-addon1"
+                          ></input>
+                        </div>
+                      </th>
+                      <td>
+                        <textarea
+                          type="text"
+                          class="form-control"
+                          placeholder="Instalación de Tuberia metalica EMT 3/4"
+                        ></textarea>
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" placeholder="ml"></input>
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" placeholder="50"></input>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="$10000"
+                        ></input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <input type="text" class="form-control" placeholder="1.2"></input>
+                      </th>
+                      <td>
+                        <textarea
+                          type="text"
+                          class="form-control"
+                          placeholder="Instalación de Cable Aislado THWN 12awg"
+                        ></textarea>
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" placeholder="ml"></input>
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" placeholder="35"></input>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="$10000"
+                        ></input>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <input type="text" class="form-control" placeholder="1.3"></input>
+                      </th>
+                      <td>
+                        <textarea
+                          type="text"
+                          class="form-control"
+                          placeholder="Instalación de Tomacorriente Doble 110V"
+                        ></textarea>
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" placeholder="und"></input>
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" placeholder="1"></input>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="$30000"
+                        ></input>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
             </div>
         );
+        
       }
   }
 

@@ -18,7 +18,7 @@ function Header() {
         <ul className="nav nav-pills d-flex align-items-center">
             {/* <li className="nav-item"><a href="#" className="nav-link active docs-creator" aria-current="page">Home</a></li> */}
             <li className="nav-item"><a href="/contratos" id="navbar" className="nav-link docs-creator">Mis contratos</a></li>
-            <li className="nav-item"><a href="/contratos/1" id="navbar" className="nav-link docs-creator">Nuevo Contrato</a></li>
+            <li className="nav-item"><a href="/crear" id="navbar" className="nav-link docs-creator">Nuevo Contrato</a></li>
             <li className="nav-item"><a href="/" id="navbar" className="nav-link docs-creator">Salir</a></li>
         </ul>
         </header>

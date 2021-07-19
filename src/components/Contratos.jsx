@@ -29,18 +29,7 @@ const Contratos = () => {
   return (
     
     <div className="contratos">
-      <a
-                className="ver-contrato"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Editar lista de contratos
-              </a>
-      <table class="table" style={{
-        marginLeft: '5vw',
-        marginRight: '5vw'
-      }}>
+      <table class="table">
         <thead>
           <tr>
             <th scope="col">Contrato</th>
@@ -51,19 +40,13 @@ const Contratos = () => {
           </tr>
         </thead>
         <tbody>
-          <tr style={{
-                        background: 'var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box',
-                        border: '1px solid var(--unnamed-color-707070)',
-                        background: '#FFFFFF 0% 0% no-repeat padding-box',
-                        border: '1px solid #707070',
-                        // borderRadius: '40px',
-                        borderRadius: '15px'}}>
+          <tr>
             <th scope="row">Instalaciones Electricas</th>
             <td>Edificio Milenio III</td>
             <td>21 julio 2021</td>
             <td>21 julio 2022</td>
             <td>
-            <button className="btn btn-success btn-block" >Ver Contrato</button>
+            <a href="/detalles" role="button" className="btn btn-success btn-block" >Ver Contrato</a>
             </td>
           </tr>
           <tr>
@@ -72,7 +55,7 @@ const Contratos = () => {
             <td>21 julio 2021</td>
             <td>21 julio 2022</td>
             <td>
-            <button className="btn btn-success btn-block" >Ver Contrato</button>
+            <a href="/detalles" role="button" className="btn btn-success btn-block" >Ver Contrato</a>
             </td>            
           </tr>
           <tr>
@@ -80,7 +63,9 @@ const Contratos = () => {
             <td>Edificio Milenio III</td>
             <td>21 julio 2021</td>
             <td>21 julio 2022</td>
-            <td><button className="btn btn-success btn-block" >Ver Contrato</button></td>
+            <td>
+            <a href="/detalles" role="button" className="btn btn-success btn-block" >Ver Contrato</a>
+            </td>
           </tr>
         </tbody>
       </table>

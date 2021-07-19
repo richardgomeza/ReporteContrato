@@ -72,7 +72,7 @@ function App() {
           </div>
         </Route>
 
-        <Route path="/crearc">
+        <Route path="/crear">
           <div style={{
             '--color-1': '#F2F2F8',
             '--color-2': '#949497',
@@ -93,48 +93,7 @@ function App() {
           </div>
         </Route>
 
-        <Route path="/cantidadese">
-          <div style={{
-            '--color-1': '#F2F2F8',
-            '--color-2': '#949497',
-            background: `
-              linear-gradient(
-                170deg,
-                var(--color-1),
-                var(--color-2) 80%
-              )
-            `,
-            // Unrelated styles:
-            color: 'white',
-            textAlign: 'center',
-          }}>
-            <Header></Header>
-            <CantidadesE />
-            <Footer></Footer>
-          </div>
-        </Route>
-        <Route path="/contratose">
-          <div style={{
-            '--color-1': '#F2F2F8',
-            '--color-2': '#949497',
-            background: `
-              linear-gradient(
-                170deg,
-                var(--color-1),
-                var(--color-2) 80%
-              )
-            `,
-            // Unrelated styles:
-            color: 'white',
-            textAlign: 'center',
-          }}>
-            <Header></Header>
-            <ContratosE />
-            <Footer></Footer>
-          </div>
-        </Route>
-
-        <Route path="/vistacontrato">
+        <Route path="/detalles">
         <div style={{
             '--color-1': '#F2F2F8',
             '--color-2': '#949497',
