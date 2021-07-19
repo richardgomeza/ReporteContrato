@@ -5,9 +5,7 @@ import './App.css';
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Cantidades from './components/Cantidades.jsx';
-import CantidadesE from './components/Cantidadeditar.jsx';
 import Contratos from './components/Contratos.jsx';
-import ContratosE from './components/Contratoeditar.jsx';
 import Formulario from './components/FormularioContrato.jsx';
 import Login from './components/Login/index.js';
 
