@@ -47,7 +47,7 @@ function Footer() {
             <div class="col-6 col-md text-#FFFFFF">
                 <h4 id="titleFooter"><b>Recursos</b></h4>
                 <ul class="list-unstyled text-small" id="names">
-                <li class="mb-1"><a class="text-decoration-none docs-creator" href="#" style={{color:'#FFFFFF'}}>Repositorio</a></li>
+                <li class="mb-1"><a class="text-decoration-none docs-creator" href="https://github.com/richardgomeza/ReporteContrato/tree/master" style={{color:'#FFFFFF'}}>Repositorio</a></li>
                 </ul>
             </div>
             <div class="col-6 col-md">

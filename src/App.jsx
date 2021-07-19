@@ -5,42 +5,23 @@ import './App.css';
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Cantidades from './components/Cantidades.jsx';
+import CantidadesE from './components/Cantidadeditar.jsx';
 import Contratos from './components/Contratos.jsx';
+import ContratosE from './components/Contratoeditar.jsx';
+import Formulario from './components/FormularioContrato.jsx';
 import Login from './components/Login/index.js';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  // eslint-disable-next-line
   Link
 
 } from 'react-router-dom'
 
 function App() {
   return (
-    // <div className="App" style={{
-    //   '--color-1': '#F2F2F8',
-    //   '--color-2': '#949497',
-    //   background: `
-    //     linear-gradient(
-    //       170deg,
-    //       var(--color-1),
-    //       var(--color-2) 80%
-    //     )
-    //   `,
-
-    //   // Unrelated styles:
-    //   color: 'white',
-    //   textAlign: 'center',
-    // }}>
-    //   <Header></Header>
-    //   <div>
-    //     <a href="">Pequeña <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>vista</a>
-    //   </div>
-    //   <Footer></Footer>
-    // </div>
-
-
     //Dentro de el componente router se reenderizaran todos los demas componentes
     //Primer ejercicio
 
@@ -69,30 +50,7 @@ function App() {
       {/* <Link to="/">Login</Link> */}
 
       <Switch>
-        
-        <Route exact path="/footer">
-        <div className="App" style={{
-          '--color-1': '#F2F2F8',
-          '--color-2': '#949497',
-          background: `
-            linear-gradient(
-              170deg,
-              var(--color-1),
-              var(--color-2) 80%
-            )
-          `,
-          // Unrelated styles:
-          color: 'white',
-          textAlign: 'center',
-        }}>
-          <Header></Header>
-          <div>
-            <span>Pequeña <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>vista</span>
-          </div>
-          <Footer></Footer>
-        </div>
-        </Route>
-
+        {/* Listado de contratos */}
         <Route path="/contratos">
           <div style={{
             '--color-1': '#F2F2F8',
@@ -104,13 +62,74 @@ function App() {
                 var(--color-2) 80%
               )
             `,
-
             // Unrelated styles:
             color: 'white',
             textAlign: 'center',
           }}>
             <Header></Header>
             <Contratos />
+            <Footer></Footer>
+          </div>
+        </Route>
+
+        <Route path="/crearc">
+          <div style={{
+            '--color-1': '#F2F2F8',
+            '--color-2': '#949497',
+            background: `
+              linear-gradient(
+                170deg,
+                var(--color-1),
+                var(--color-2) 80%
+              )
+            `,
+            // Unrelated styles:
+            color: 'white',
+            textAlign: 'center',
+          }}>
+            <Header></Header>
+            <Formulario />
+            <Footer></Footer>
+          </div>
+        </Route>
+
+        <Route path="/cantidadese">
+          <div style={{
+            '--color-1': '#F2F2F8',
+            '--color-2': '#949497',
+            background: `
+              linear-gradient(
+                170deg,
+                var(--color-1),
+                var(--color-2) 80%
+              )
+            `,
+            // Unrelated styles:
+            color: 'white',
+            textAlign: 'center',
+          }}>
+            <Header></Header>
+            <CantidadesE />
+            <Footer></Footer>
+          </div>
+        </Route>
+        <Route path="/contratose">
+          <div style={{
+            '--color-1': '#F2F2F8',
+            '--color-2': '#949497',
+            background: `
+              linear-gradient(
+                170deg,
+                var(--color-1),
+                var(--color-2) 80%
+              )
+            `,
+            // Unrelated styles:
+            color: 'white',
+            textAlign: 'center',
+          }}>
+            <Header></Header>
+            <ContratosE />
             <Footer></Footer>
           </div>
         </Route>
@@ -136,9 +155,6 @@ function App() {
           </div>
         </Route>
 
-        <Route exact path="/">
-          <Login />
-        </Route>
         <Route exact path="/">
           <Login />
         </Route>

@@ -9,7 +9,7 @@ function Header() {
     <div className="container" >
         <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <span className="d-flex align-items-center  me-md-auto text-decoration-none docs-creator">
-          <img src={process.env.PUBLIC_URL + '/logo.png'} id='logo' />
+          <img src={process.env.PUBLIC_URL + '/logo.png'} id='logo' alt="logo" />
             <span id='titleHeader' className="fs-4">CONSTRUCTORA<br/>SOSA & CÍA S.A.</span>
         </span>
         <span className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-#040D5C text-decoration-none docs-creator">

@@ -23,7 +23,7 @@ const index = () => {
                             </label>
                             <label className="PasswordLabel">
                                 Contraseña
-                                <input type='text' name='Password' className='inputpassword' alt="contraseña"/>
+                                <input type='password' id="inputPassword6" name='Password' aria-describedby="passwordHelpInline" className='inputpassword' alt="contraseña"/>
                             </label>
                         </form>
                     </div>
