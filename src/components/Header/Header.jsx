@@ -1,10 +1,7 @@
-// import logo from '../logo.svg';
-// import Logo_ from './logo.png';
-// console.log(Logo_); 
-// const logo = require('./logo.png');
+
 import './Header.css'
 
-function Header() {
+function Header({links}) {
   return (
     <div className="container" >
         <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -17,9 +14,9 @@ function Header() {
         </span>
         <ul className="nav nav-pills d-flex align-items-center">
             {/* <li className="nav-item"><a href="#" className="nav-link active docs-creator" aria-current="page">Home</a></li> */}
-            <li className="nav-item"><a href="/contratos" id="navbar" className="nav-link docs-creator">Mis contratos</a></li>
-            <li className="nav-item"><a href="/crear" id="navbar" className="nav-link docs-creator">Nuevo Contrato</a></li>
-            <li className="nav-item"><a href="/" id="navbar" className="nav-link docs-creator">Salir</a></li>
+            <li className="nav-item"><a href={links.tabla} id="navbar" className="nav-link docs-creator">Mis contratos</a></li>
+            <li className="nav-item"><a href={links.nuevo} id="navbar" className="nav-link docs-creator">Nuevo Contrato</a></li>
+            <li className="nav-item"><a href="/                             " id="navbar" className="nav-link docs-creator">Salir</a></li>
         </ul>
         </header>
     </div>

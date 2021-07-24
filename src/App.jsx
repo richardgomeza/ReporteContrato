@@ -1,124 +1,62 @@
 // import logo from './logo.svg';
-import React from 'react';
+// eslint-disable-next-line
+import React, { Suspense, lazy, Component } from 'react';
+// eslint-disable-next-line
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {Provider} from 'react-redux';
+         
+import generateStore from './redux/store'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'; 
-import Header from './components/Header/Header.jsx';
-import Footer from './components/Footer/Footer.jsx';
-import Cantidades from './components/Cantidades.jsx';
-import Contratos from './components/Contratos.jsx';
-import Formulario from './components/FormularioContrato.jsx';
-import Login from './components/Login/index.js';
+import Login from './components/Login/index.jsx';
+const ContratosR = lazy(() => import('./router/ContratosR.jsx'));
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   // eslint-disable-next-line
+//   Link
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  // eslint-disable-next-line
-  Link
+// } from 'react-router-dom'
 
-} from 'react-router-dom'
 
-function App() {
+class App extends Component {
+  
+
+  render() { 
+  const store = generateStore()
   return (
     //Dentro de el componente router se reenderizaran todos los demas componentes
     //Primer ejercicio
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+      <title>Contratos</title>
+    </head>
+    <body>
 
-    // <Router>
-    //   <Link to="/inicio"> Inicio</Link>
-    //   <Link to="/"> Base</Link>
-    //   {/* dentro de este switch se le indicara que para esta ruta con esta url cargas este contenido */}
-    //   <Switch>
-    //     <Route exact path='/'>
+    <Provider store={store}>
+      <Router>
+        <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route path="/contratos" component={ContratosR}>
+          </Route>
 
-    //       <Base />
-    //     </Route>
-    //     {/* <Route path='/inicio/:nombre'> */}
-    //     <Route path='/inicio/:nombre/:id/:edad'>
-    //       <Inicio />
+          <Route exact path="/">
+            <Login />
+          </Route>
 
-    //     </Route>
-
-    //   </Switch>
-
-    // </Router>
-
-
-    <Router>
-
-      {/* <Link to="/">Login</Link> */}
-
-      <Switch>
-        {/* Listado de contratos */}
-        <Route path="/contratos">
-          <div style={{
-            '--color-1': '#F2F2F8',
-            '--color-2': '#949497',
-            background: `
-              linear-gradient(
-                170deg,
-                var(--color-1),
-                var(--color-2) 80%
-              )
-            `,
-            // Unrelated styles:
-            color: 'white',
-            textAlign: 'center',
-          }}>
-            <Header></Header>
-            <Contratos />
-            <Footer></Footer>
-          </div>
-        </Route>
-
-        <Route path="/crear">
-          <div style={{
-            '--color-1': '#F2F2F8',
-            '--color-2': '#949497',
-            background: `
-              linear-gradient(
-                170deg,
-                var(--color-1),
-                var(--color-2) 80%
-              )
-            `,
-            // Unrelated styles:
-            color: 'white',
-            textAlign: 'center',
-          }}>
-            <Header></Header>
-            <Formulario />
-            <Footer></Footer>
-          </div>
-        </Route>
-
-        <Route path="/detalles">
-        <div style={{
-            '--color-1': '#F2F2F8',
-            '--color-2': '#949497',
-            background: `
-              linear-gradient(
-                170deg,
-                var(--color-1),
-                var(--color-2) 80%
-              )
-            `,
-            // Unrelated styles:
-            color: 'white',
-            textAlign: 'center',
-          }}>
-            <Header></Header>
-            <Cantidades />
-            <Footer></Footer>
-          </div>
-        </Route>
-
-        <Route exact path="/">
-          <Login />
-        </Route>
-
-      </Switch>
-    </Router>
-  );
+        </Switch>
+        </Suspense>
+      </Router>
+    </Provider>
+    </body>
+    </html>
+  ); 
+  }
 }
 
 export default App;
