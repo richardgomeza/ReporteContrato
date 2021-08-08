@@ -61,7 +61,8 @@
 .inputuser, .inputpassword {
     margin-left: 1.771vw;
     float: right;
-    width: 21.198vw;
+    width: auto;
+    min-width: 21.198vw;
     height: 3.4vw; 
     border-radius: 3.889vw;
     font: normal normal normal 2.083vw/3.021vw Sitka Small;

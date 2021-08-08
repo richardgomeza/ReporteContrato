@@ -1,6 +1,18 @@
 import React from 'react';
 import Tabla from "./Tabla";
 import Formulario1 from "./Formulario";
+// eslint-disable-next-line
+import {
+  Table,
+  Button,
+  Container,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  FormGroup,
+  ModalFooter,
+} from "reactstrap";
+
 
 class Formulario extends React.Component {
     // constructor(props) {
@@ -46,14 +58,48 @@ class Formulario extends React.Component {
             date1: new Date(),
             date2: new Date(),
             characters: [],
-            editar:{}
+            editar:{},
+            modalActualizar: false,
+            modalInsertar: false,
+            form: {
+              descripcion: "",
+              unidad: "",
+              cantidad: "",
+              vunitario: "",
+            },
         };   
-        
         
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
-      }
+      };
+
+      mostrarModalActualizar(dato) {
+        this.setState({
+          form: dato,
+          modalActualizar: true,
+        });
+      };
+
+      cerrarModalActualizar = () => {
+        this.setState({ modalActualizar: false });
+      };
+
+      editar = (dato) => {
+        var contador = 0;
+        var arreglo = this.state.data;
+        arreglo.map((registro) => {
+          if (dato.idContrato === registro.idContrato) {
+            arreglo[contador].contrato = dato.contrato;
+            arreglo[contador].proyecto = dato.proyecto;
+            arreglo[contador].inicio = dato.inicio;
+            arreglo[contador].fin = dato.fin;
+          }
+          contador++;
+        });
+        this.setState({ data: arreglo, modalActualizar: false });
+      };
+
       handleChange(event) {
         this.setState({value: event.target.value1});
         this.setState({value: event.target.value2});
@@ -87,27 +133,27 @@ class Formulario extends React.Component {
       //   characters: [],
       // };
       removeCharacter = (index) => {
-        const { characters } = this.state.characters ;
+        const { characters } = this.state ;
     
         this.setState({
-          characters: characters.filter((character, i) => {
+          characters: characters.filter((characters, i) => {
             return i !== index;
           }),
         });
       };
-      editCharacter = (index) => {
-        const { characters } = this.state;
-        this.state = {
-          characters: characters.filter((character, i) => {
-            return i !== index;
-          }),
-        };
+      // editCharacter = (index) => {
+      //   const { characters } = this.state;
+      //   this.state = {
+      //     characters: characters.filter((character, i) => {
+      //       return i !== index;
+      //     }),
+      //   };
         // this.setState({
         //   characters: characters.filter((character, i) => {
         //     return i !== index;
         //   }),
         // });
-      };
+      // };
     
       handleSubmit = (character) => {
         this.setState({ characters: [...this.state.characters, character] });
@@ -162,9 +208,100 @@ class Formulario extends React.Component {
                 <Tabla
                   characterData={characters}
                   removeCharacter={this.removeCharacter}
-                  editCharacter={this.editCharacter}
+                  mostrarModalActualizar={this.mostrarModalActualizar}
+                  // editCharacter={this.editCharacter}
                 />
-                
+                <Modal isOpen={this.state.modalActualizar}>
+                  <ModalHeader>
+                  <div><h3>Editar Registro</h3></div>
+                  </ModalHeader>
+
+                  <ModalBody>
+                    <FormGroup>
+                      <label>
+                      Id:
+                      </label>
+                    
+                      <input
+                        className="form-control"
+                        readOnly
+                        type="text"
+                        value={this.state.form.idContrato}
+                      />
+                    </FormGroup>
+                    
+                    <FormGroup>
+                      <label>
+                        Contrato: 
+                      </label>
+                      <input
+                        className="form-control"
+                        name="contrato"
+                        type="text"
+                        onChange={this.handleChange}
+                        value={this.state.form.contrato}
+                      />
+                    </FormGroup>
+                    
+                    <FormGroup>
+                      <label>
+                        Proyecto: 
+                      </label>
+                      <input
+                        className="form-control"
+                        name="proyecto"
+                        type="text"
+                        onChange={this.handleChange}
+                        value={this.state.form.proyecto}
+                      />
+                    </FormGroup>
+
+                    <FormGroup>
+                      <label>
+                        Inicio: 
+                      </label>
+                      <input
+                        className="form-control"
+                        name="inicio"
+                        type="text"
+                        onChange={this.handleChange}
+                        value={this.state.form.inicio}
+                      />
+                    </FormGroup>
+
+                    <FormGroup>
+                      <label>
+                        Fin: 
+                      </label>
+                      <input
+                        className="form-control"
+                        name="fin"
+                        type="text"
+                        onChange={this.handleChange}
+                        value={this.state.form.fin}
+                      />
+                    </FormGroup>
+
+
+
+
+                  </ModalBody>
+
+                  <ModalFooter>
+                    <Button
+                      color="primary"
+                      onClick={() => this.editar(this.state.form)}
+                    >
+                      Guardar
+                    </Button>
+                    <Button
+                      color="danger"
+                      onClick={() => this.cerrarModalActualizar()}
+                    >
+                      Cancelar
+                    </Button>
+                  </ModalFooter>
+                </Modal>
             </div>
         );
         

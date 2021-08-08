@@ -52,4 +52,4 @@ export default function ContratosR() {
                 <Footer />
             </div>                          
         </Router>
-    )}
+)};

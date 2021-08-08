@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 class Formulario extends Component {
   initialState = {
-    item: "",
       descripcion: "",
       unidad: "",
       cantidad: "",
@@ -41,21 +40,11 @@ class Formulario extends Component {
   };
 
   render() {
-    const { item, descripcion, unidad, cantidad, vunitario } = this.state;
+    const { descripcion, unidad, cantidad, vunitario } = this.state;
     
   console.log(this.props)
     return (
       <form onSubmit={this.onFormSubmit}>
-        <label for="item" style={{margin:'1vw'}}>Item</label>
-        <input
-          style={{margin:'1vw'}}
-          type="text"
-          size="8"
-          name="item"
-          id="item"
-          value={item}
-          onChange={this.handleChange}
-        />
         <label for="descripcion" style={{margin:'1vw'}}>Descripcion</label>
         <input
           style={{margin:'1vw'}}

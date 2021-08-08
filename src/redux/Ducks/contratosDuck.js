@@ -1,5 +1,4 @@
-import modelo from './ContratosProvisionales.js'
-// eslint-disable-next-line
+// import modelo from './ContratosProvisionales.js'
 import axios from 'axios'
 // Constantes
 const contratos = {
@@ -19,20 +18,23 @@ export default function contratosReduce(state = contratos ,action){
             return state
     }
 }
+
 // Acciones
 export const obtenerContratosAccion = () => async (dispatch, getState) => {
     try {
-        const res = modelo;
-        dispatch({
-            type: GET_obtenerContratos_EXITO,
-            payload: res
-        })
-        // const res = await axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
+        // const res = modelo;
         // dispatch({
         //     type: GET_obtenerContratos_EXITO,
-        //     payload: res.data.results
+        //     payload: res
         // })
-        console.log(res)
+        const res = await axios.get('/api/contratos/list'
+        );
+        // console.log(res.data)
+        dispatch({
+            type: GET_obtenerContratos_EXITO,
+            payload: res.data
+        })
+        console.log('contratos obtenidos ')
     } catch (error) {
         console.log(error)
     }

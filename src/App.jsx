@@ -2,32 +2,42 @@
 // eslint-disable-next-line
 import React, { Suspense, lazy, Component } from 'react';
 // eslint-disable-next-line
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import {Provider} from 'react-redux';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import PrivateRoute from './private/privateRoute.jsx';
          
-import generateStore from './redux/store'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'; 
+import App2 from './components/App.js'
 import Login from './components/Login/index.jsx';
+
+import {store} from './redux/store';
+import {setAuthToken, setCurrentUser, logoutUser} from './redux/Ducks/userDuck';
+import jwt_decode from'jwt-decode'
 const ContratosR = lazy(() => import('./router/ContratosR.jsx'));
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   // eslint-disable-next-line
-//   Link
-
-// } from 'react-router-dom'
-
+if (localStorage.jwtToken) {
+  // Set auth token header auth
+  const token = localStorage.jwtToken;
+  setAuthToken(token);
+  // Decode token and get user info and exp
+  const decoded = jwt_decode(token);
+  // Set user and isAuthenticated
+  store.dispatch(setCurrentUser(decoded));
+  
+  // Check for expired token
+  const currentTime = Date.now() / 1000; // to get in milliseconds
+  if (decoded.exp < currentTime) {
+  // Logout user
+  store.dispatch(logoutUser());
+  // Redirect to login
+  window.location.href = "./login";
+}}
 
 class App extends Component {
   
-
   render() { 
-  const store = generateStore()
-  return (
-    //Dentro de el componente router se reenderizaran todos los demas componentes
-    //Primer ejercicio
+    return (
+    // Dentro de el componente router se reenderizaran todos los demas componentes
+    // Primer ejercicio
     <html lang="es">
     <head>
       <meta charset="UTF-8" />
@@ -37,14 +47,15 @@ class App extends Component {
       <title>Contratos</title>
     </head>
     <body>
-
-    <Provider store={store}>
       <Router>
         <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <Route path="/contratos" component={ContratosR}>
-          </Route>
+          <PrivateRoute path="/contratos" component={ContratosR}>
+          </PrivateRoute>
 
+          <Route exact path="/pablo">
+            <App2 />
+          </Route>
           <Route exact path="/">
             <Login />
           </Route>
@@ -52,7 +63,6 @@ class App extends Component {
         </Switch>
         </Suspense>
       </Router>
-    </Provider>
     </body>
     </html>
   ); 

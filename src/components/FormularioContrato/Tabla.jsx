@@ -7,7 +7,6 @@ const TableHeader = () => {
   return (
     <thead>
       <tr>
-        <th>Item</th>
         <th>Descripcion</th>
         <th>Unidad</th>
         <th>Cantidad</th>
@@ -22,7 +21,6 @@ const TableBody = props => {
   const rows = props.characterData.map((row, index) => {
     return (
       <tr key={index}>
-        <td> {row.item} </td>
         <td> {row.descripcion} </td>
         <td> {row.unidad} </td>
         <td> {row.cantidad} </td>
@@ -30,7 +28,7 @@ const TableBody = props => {
         <td>
           <button 
               className="btn btn-info btn-block" 
-              onClick={() => props.editCharacter(index)}><FontAwesomeIcon icon={faEdit} /> </button>
+              onClick={() => props.mostrarModalActualizar(index)}><FontAwesomeIcon icon={faEdit} /> </button>
           <button 
               className="btn btn-danger btn-block" 
               onClick={() => props.removeCharacter(index)}><FontAwesomeIcon icon={faTrash} /> </button>
@@ -42,14 +40,15 @@ const TableBody = props => {
 };
 
 const Tabla = (props) => {
-  const {characterData, removeCharacter, editCharacter} = props
+  const {characterData, removeCharacter, mostrarModalActualizar} = props
   return(
     <table className="table">
       <TableHeader/>
       <TableBody 
         characterData={characterData} 
         removeCharacter={removeCharacter}
-        editCharacter={editCharacter}/>      
+        mostrarModalActualizar={mostrarModalActualizar}
+        />      
     </table>
   )
 }
